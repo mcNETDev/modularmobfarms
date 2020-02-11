@@ -10,6 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayer.EnumChatVisibility;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -19,6 +20,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.storage.AnvilChunkLoader;
 import net.minecraftforge.client.event.EntityViewRenderEvent.CameraSetup;
@@ -33,6 +35,7 @@ import java.util.Random;
 import java.util.UUID;
 
 import com.mojang.authlib.GameProfile;
+import com.mojang.realmsclient.gui.ChatFormatting;
 
 public class SimpleControllerTile extends ControllerTile implements ITickable {
 
@@ -45,20 +48,20 @@ public class SimpleControllerTile extends ControllerTile implements ITickable {
 	public void sendInfoToPlayer(EntityPlayer player) {
 		ConfigManager c = MMFarms.INSTANCE.getConfig();
 		updateSklaveInfo();
-		player.sendMessage(s("§8---------- §bController Info §8----------"));
-		player.sendMessage(s("§7Assembled: " + (canRun() ? "§atrue" : "§cfalse")));
-		player.sendMessage(s("§7RF/t: " + calculateRF()));
-		player.sendMessage(s("§7Loot Time(t): " + ticks));
-		player.sendMessage(s("§7Soul: §6" + (getSoul() == null ? "" : getSoul())));
-		player.sendMessage(s("§7Upgrades:"));
-		player.sendMessage(s("§7 Sharpness (Speed): " + getSharpness() + "/" + c.getMax_sharpness()));
-		player.sendMessage(s("§7 Looting: " + getLooting() + "/" + c.getMax_looting()));
-		player.sendMessage(s("§7 Beheading[WIP]: " + getBeheading() + "/" + c.getMax_beheading()));
+		player.sendMessage(s(TextFormatting.DARK_GRAY + "---------- " + TextFormatting.AQUA + "Controller Info " + TextFormatting.DARK_GRAY + "----------"));
+		player.sendMessage(s(TextFormatting.GRAY + "Assembled: " + (canRun() ? TextFormatting.GREEN + "true" : ChatFormatting.RED + "false")));
+		player.sendMessage(s(TextFormatting.GRAY + "RF/t: " + calculateRF()));
+		player.sendMessage(s(TextFormatting.GRAY + "Loot Time(t): " + ticks));
+		player.sendMessage(s(TextFormatting.GRAY + "Soul: " + TextFormatting.GOLD + (getSoul() == null ? "" : getSoul())));
+		player.sendMessage(s(TextFormatting.GRAY + "Upgrades:"));
+		player.sendMessage(s(TextFormatting.GRAY + " Sharpness (Speed): " + getSharpness() + "/" + c.getMax_sharpness()));
+		player.sendMessage(s(TextFormatting.GRAY + " Looting: " + getLooting() + "/" + c.getMax_looting()));
+		player.sendMessage(s(TextFormatting.GRAY + " Beheading[WIP]: " + getBeheading() + "/" + c.getMax_beheading()));
 
 		if (!canRun()) {
 			player.sendMessage(s("§8----------§b     Errors      §8----------"));
 			for (ErrorSklaveInfo i : getErrors()) {
-				player.sendMessage(s("§c" + i.getInfo()));
+				player.sendMessage(s(ChatFormatting.RED + i.getInfo()));
 			}
 		}
 

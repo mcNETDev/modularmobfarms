@@ -2,6 +2,8 @@ package de.dwcode.mmfarms.blocks;
 
 import java.util.List;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
+
 import de.dwcode.mmfarms.blocks.init.SklaveBlock;
 import de.dwcode.mmfarms.data.SklaveInfo;
 import net.minecraft.block.ITileEntityProvider;
@@ -42,8 +44,8 @@ public class SoulSklaveBlock extends SklaveBlock implements ITileEntityProvider 
 			String id = an.getString("id");
 			if (world.getTileEntity(pos) != null && world.getTileEntity(pos) instanceof SoulSklaveTile) {
 				((SoulSklaveTile) world.getTileEntity(pos)).setSoul(id);
-				player.sendMessage(new TextComponentString("§7Mob set to: §6" + id));
-				player.sendMessage(new TextComponentString("§7Right click the Controller to activate!"));
+				player.sendMessage(new TextComponentString(ChatFormatting.GRAY + "Mob set to: " + ChatFormatting.GOLD + id));
+				player.sendMessage(new TextComponentString(ChatFormatting.GRAY + "Right click the Controller to activate!"));
 			}
 		}
 		return true;
