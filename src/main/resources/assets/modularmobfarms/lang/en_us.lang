@@ -1,0 +1,8 @@
+tile.simple_controller.name=Basic Controller
+tile.soulsklaveblock.name=Spawner
+tile.itemoutputsklave.name=Item Output
+tile.killer.name=Killer
+tile.up_sharpness.name=Sharpness (Speed) Upgrade
+tile.up_looting.name=Looting Upgrade
+tile.up_beheading.name=Beheading Upgrade [WIP]
+tooltip.spawner=Right Click with a Golden Lasso or Cursed Lasso to set the Mob Type
