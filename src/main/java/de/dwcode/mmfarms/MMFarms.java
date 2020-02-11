@@ -15,6 +15,7 @@ import de.dwcode.mmfarms.blocks.UpgradeSklaveBlock;
 import de.dwcode.mmfarms.data.SklaveType;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -68,6 +69,14 @@ public class MMFarms {
 
 	public static final FakeSword sword = new FakeSword();
 
+	public static final CreativeTabs tab = new CreativeTabs("ctab") {
+
+		@Override
+		public ItemStack getTabIconItem() {
+			return new ItemStack(soul_block);
+		}
+	};
+
 	public static ConfigManager config;
 
 	@EventHandler
@@ -91,16 +100,16 @@ public class MMFarms {
 	@SubscribeEvent
 	public void registerBlocks(RegistryEvent.Register<Block> registry) {
 		// Controllers
-		registry.getRegistry().register(controller1);
+		registry.getRegistry().register(controller1.setCreativeTab(tab));
 		// Blocks
-		registry.getRegistry().register(soul_block);
-		registry.getRegistry().register(itemOutput_block);
-		registry.getRegistry().register(killer_block);
+		registry.getRegistry().register(soul_block.setCreativeTab(tab));
+		registry.getRegistry().register(itemOutput_block.setCreativeTab(tab));
+		registry.getRegistry().register(killer_block.setCreativeTab(tab));
 
 		// Upgrades
-		registry.getRegistry().register(upgrade_sharpness_block);
-		registry.getRegistry().register(upgrade_looting_block);
-		registry.getRegistry().register(upgrade_beheading_block);
+		registry.getRegistry().register(upgrade_sharpness_block.setCreativeTab(tab));
+		registry.getRegistry().register(upgrade_looting_block.setCreativeTab(tab));
+		registry.getRegistry().register(upgrade_beheading_block.setCreativeTab(tab));
 
 		GameRegistry.registerTileEntity(SimpleControllerTile.class, MODID + ":" + SimpleControllerBlock.name);
 

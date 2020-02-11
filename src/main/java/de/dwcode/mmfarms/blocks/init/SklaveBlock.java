@@ -1,5 +1,6 @@
 package de.dwcode.mmfarms.blocks.init;
 
+import de.dwcode.mmfarms.MMFarms;
 import de.dwcode.mmfarms.data.SklaveInfo;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

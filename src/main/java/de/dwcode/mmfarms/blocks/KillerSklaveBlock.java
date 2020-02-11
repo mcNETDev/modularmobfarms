@@ -1,5 +1,6 @@
 package de.dwcode.mmfarms.blocks;
 
+import de.dwcode.mmfarms.MMFarms;
 import de.dwcode.mmfarms.blocks.init.SklaveBlock;
 import de.dwcode.mmfarms.data.KillerSklaveInfo;
 import de.dwcode.mmfarms.data.SklaveInfo;

@@ -2,6 +2,7 @@ package de.dwcode.mmfarms.blocks;
 
 import java.util.List;
 
+import de.dwcode.mmfarms.MMFarms;
 import de.dwcode.mmfarms.blocks.init.SklaveBlock;
 import de.dwcode.mmfarms.data.SklaveInfo;
 import net.minecraft.block.ITileEntityProvider;
